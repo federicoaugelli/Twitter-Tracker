@@ -1,0 +1,60 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane stylesheets="@../css/style.css" id="Container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750" prefWidth="1388" fx:controller="main.Controller" xmlns:fx="http://javafx.com/fxml">
+    <children>
+        <BorderPane>
+            <top>
+                <VBox id="VBox">
+                    <HBox spacing="20">
+                        <padding>
+                            <Insets top="20" right="15" bottom="10" left="15" />
+                        </padding>
+                        <TextField fx:id="searchBar" promptText="Parole Chiavi"/>
+                        <Button fx:id="searchButton" id="button" onAction="#search" text="Cerca"/>
+                        <ComboBox fx:id="filterSearch" id="Combobox" onAction="#selectFilterSearch" promptText="Scegli il Filtro"/>
+                        <DatePicker fx:id="datePickerBegin" promptText="Data di inizio" />
+                        <DatePicker fx:id="datePickerEnd" promptText="Data di fine"/>
+                        <ComboBox fx:id="location" id="Combobox" promptText="Scegli il luogo" onAction="#selectRegion"/>
+                        <Button fx:id="saveTweets" id="button" text="Salva i Tweet" onAction="#saveTweet"/>
+                        <Button fx:id="loadFileJson" id="button" text="Carica file Json" onAction="#loadJson"/>
+                    </HBox>
+                    <HBox spacing="20">
+                        <padding>
+                            <Insets top="10" right="15" bottom="30" left="15" />
+                        </padding>
+                        <TextField fx:id="streamBar" promptText="Parole Chiavi"/>
+                        <Button fx:id="streamButton" id="button" onAction="#streamSearch" text="Cerca"/>
+                        <Button fx:id="streamStop" id="button" onAction="#stopStream" text="Stop"/>
+                        <ComboBox fx:id="filterStream" id="Combobox" onAction="#selectFilterStream" promptText="Scegli il Filtro"/>
+                        <!--<Button fx:id="conta" id="button" text="conta" onAction="#contaFoto"/>-->
+                        <Button fx:id="buttonMap" id="button" text="Mappa dei Tweet" onAction="#openMap"/>
+                        <Button fx:id="grafico" id="button" text="Grafico" onAction="#VisualizzaGrafico"></Button>
+                        <Button fx:id="wordcloud" id="button" text="WordCloud" onAction="#CreateWordCloud"></Button>
+                        <Button fx:id="login" id="button" text="Post" onAction="#loginTwitter"></Button>
+                    </HBox>
+                </VBox>
+            </top>
+            <center>
+                <HBox spacing="20">
+                    <padding>
+                        <Insets top="5" right="15" bottom="10" left="15" />
+                    </padding>
+                    <ListView fx:id="listView" prefWidth="650" prefHeight="600"/>
+                    <TableView fx:id="tweetTable" layoutX="11.0" layoutY="10.0" prefHeight="600" prefWidth="687.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                        <columns>
+                            <TableColumn fx:id="tweetNumberColumn" prefWidth="81.0" text="N. Tweet" />
+                            <TableColumn fx:id="imageColumn" prefWidth="220.0" text="Image"/>
+                            <TableColumn fx:id="userColumn" prefWidth="130.0" text="User"/>
+                            <TableColumn fx:id="likesColumn" prefWidth="80.0" text="Like" />
+                            <TableColumn fx:id="retweetColumn" prefWidth="85.0" text="Retweet" />
+                            <TableColumn fx:id="followersColumn" prefWidth="91.0" text="Followers" />
+                        </columns>
+                    </TableView>
+                </HBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

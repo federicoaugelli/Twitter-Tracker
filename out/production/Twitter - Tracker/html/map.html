@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+    <meta charset="UTF-8">
+    <style type="text/css">
+        html { height: 100% }
+        body { height: 100%; margin: 0px; padding: 0px }
+        #map { height: 100%; background-color: #666970; }
+    </style>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDt-_-xUcOeF32g7rSwHqHZatkeYOK3Pwk&callback=createMap">
+    </script>
+
+    <script type="text/javascript">
+        let map;
+
+        //Crea la mappa
+        function createMap (){
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 41.90691991128575, lng: 12.437799804077654 },
+                zoom: 6,
+            });
+
+        }
+
+        //Funzione per i marker con immagini
+        function addMarkerImage(latitude,longitude,description, mediaUrl){
+            var icon = {
+                url: mediaUrl,
+                scaledSize: new google.maps.Size(50, 50)
+
+            }
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(latitude,longitude),
+                title: description,
+                animation: google.maps.Animation.DROP,
+                map: map,
+                icon: icon
+
+            });
+        }
+
+        //Funzione per i marker senza immagini
+        function addMarker(latitude,longitude,description){
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(latitude,longitude),
+                title: description,
+                animation: google.maps.Animation.DROP,
+                map: map,
+            });
+        }
+    </script>
+
+    <title>Mappa dei tweet</title>
+</head>
+
+<body>
+
+    <div id="map" ></div>
+
+</body>
+</html>

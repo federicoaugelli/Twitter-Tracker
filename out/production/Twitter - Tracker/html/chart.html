@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grafico</title>
+    <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-base.min.js" type="text/javascript"></script>
+    <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-exports.min.js"></script>
+
+    <style>
+        html, body, #container, #container2 {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-max-size: 10px;
+            font-min-size: 10px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function createGraph(cntTweet){
+
+          // create data
+            var data = [
+                ["V.Aosta", cntTweet[0]],
+                ["Piemonte", cntTweet[1]],
+                ["Lomb.", cntTweet[2]],
+                ["Trentino", cntTweet[3]],
+                ["Veneto", cntTweet[4]],
+                ["Friuli", cntTweet[5]],
+                ["Liguria",cntTweet[6]],
+                ["EmiliaR.",cntTweet[7]],
+                ["Toscana",cntTweet[8]],
+                ["Marche",cntTweet[9]],
+                ["Umbria",cntTweet[10]],
+                ["Lazio",cntTweet[11]],
+                ["Abruzzo",cntTweet[12]],
+                ["Molise", cntTweet[13]],
+                ["Campania",cntTweet[14]],
+                ["Puglia",cntTweet[15]],
+                ["Basilicata",cntTweet[16]],
+                ["Calabria",cntTweet[17]],
+                ["Sicilia",cntTweet[18]],
+                ["Sardegna",cntTweet[19]]
+            ];
+
+            // create a chart
+            chart = anychart.column();
+
+            // create a column series and set the data
+            var series = chart.column(data);
+
+            // set the container id
+            chart.container("container");
+
+            // initiate drawing the chart
+            chart.draw();
+       }
+
+       function createGraph2(likes,retweet){
+        // create data
+           var data = [
+                      {x: "like", value: likes},
+                      {x: "retweet", value: retweet}
+           ];
+
+        // create a chart and set the data
+           chart = anychart.pie(data);
+
+        // set the container id
+           chart.container("container2");
+
+        // initiate drawing the chart
+           chart.draw();
+       }
+    </script>
+
+</head>
+<body>
+    <div id="container"> </div>
+    <br><br><br>
+    <div id="container2"> </div>
+</body>
+</html>

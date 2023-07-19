@@ -1,0 +1,16 @@
+#Container {
+    -fx-background-color: #1DA1F2;
+    -fx-font: bold italic 10pt "Arial";
+    -fx-effect: dropshadow( one-pass-box , black , 6 , 0.0 , 2 , 0 );
+
+}
+
+#button{
+    -fx-background-color: white;
+    -fx-border-radius: 10;
+}
+
+#Combobox{
+    -fx-background-color: white;
+    -fx-border-radius: 10;
+}
